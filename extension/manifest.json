@@ -1,0 +1,16 @@
+{
+  "name": "dtinth’s content scripts",
+  "manifest_version": 3,
+  "version": "0.0.0",
+  "permissions": ["clipboardWrite", "scripting"],
+  "host_permissions": ["https://github.com/", "https://*.atlassian.net/"],
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["dist/content-script-wrapper.js"]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@dtinth/content-scripts",
+  "version": "1.0.0",
+  "description": "Personal content scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel watch --no-hmr",
+    "build": "parcel build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-yaml": "^2.0.0",
+    "@testing-library/dom": "^8.11.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/chrome": "^0.0.162",
+    "browserify": "^17.0.0",
+    "parcel": "^2.0.1",
+    "typescript": "^4.4.4"
+  },
+  "targets": {
+    "content-script": {
+      "source": "./src/content-script.ts",
+      "distDir": "./extension/dist",
+      "publicUrl": "/dist"
+    },
+    "content-script-wrapper": {
+      "source": "./src/content-script-wrapper.ts",
+      "distDir": "./extension/dist",
+      "publicUrl": "/dist"
+    },
+    "background": {
+      "source": "./src/background.ts",
+      "distDir": "./extension/dist",
+      "publicUrl": "/dist"
+    }
+  }
+}
