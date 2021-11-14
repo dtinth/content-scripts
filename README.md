@@ -22,3 +22,8 @@ It integrates with [cmdpal](https://docs.dt.in.th/cmdpal/index.html).
 * <a name='jira.create-follow-up'></a>[**Jira: Create Follow-Up Issue**](src/features/GitHubJira.ts#L85) — Creates a new Jira issue with the current issue as the cause.
 
 <!-- end-command-list -->
+
+## Configuration
+
+This project will not compile until you create a configuration file at `src/config.yaml`.
+The configuration schema is documented in [`src/config.yaml.d.ts`](src/config.yaml.d.ts).
