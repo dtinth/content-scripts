@@ -13,7 +13,7 @@ It integrates with [cmdpal](https://docs.dt.in.th/cmdpal/index.html).
 
 * <a name='gh-jira.prefill'></a>[**GitHub: Prefill Pull Requests from Jira Issue**](src/features/GitHubJira.ts#L114) — When creating a pull request whose head branch contains a Jira issue reference, copies the Jira issue key and title into the pull request title.
 
-* <a name='jira.copy-key'></a>[**Jira: Copy Issue Key**](src/features/GitHubJira.ts#L47) — Copies the Jira issue key.
+* <a name='jira.copy-key'></a>[**Jira: Copy Issue Key**](src/features/GitHubJira.ts#L47) — Copies the Jira issue key to the clipboard.
 
 * <a name='jira.copy-url'></a>[**Jira: Copy Issue URL**](src/features/GitHubJira.ts#L56) — Copies the normalized Jira issue URL to the clipboard.
 
