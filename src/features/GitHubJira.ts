@@ -46,7 +46,7 @@ onOpen((cmdpal) => {
       {
         // Copies the Jira issue key.
         id: 'jira.copy-key',
-        title: 'Jira: Copy issue key',
+        title: 'Jira: Copy Issue Key',
         detail: issueKey,
         handler: async () => {
           await tools.copy(issueKey)
@@ -55,7 +55,7 @@ onOpen((cmdpal) => {
       {
         // Copies the normalized Jira issue URL to the clipboard.
         id: 'jira.copy-url',
-        title: 'Jira: Copy issue URL',
+        title: 'Jira: Copy Issue URL',
         detail: jiraUrl,
         handler: async () => {
           await tools.copy(jiraUrl)
@@ -84,7 +84,7 @@ onOpen((cmdpal) => {
         {
           // Creates a new Jira issue with the current issue as the cause.
           id: 'jira.create-follow-up',
-          title: 'Jira: Create follow-up issue',
+          title: 'Jira: Create Follow-Up Issue',
           detail: `caused by ${issueKey}`,
           handler: async () => {
             await createIssueWithRelation('is caused by')
@@ -93,7 +93,7 @@ onOpen((cmdpal) => {
         {
           // Creates a new Jira issue that blocks the current issue.
           id: 'jira.create-dep',
-          title: 'Jira: Create blocker dependency',
+          title: 'Jira: Create Blocker Dependency',
           detail: `blocks ${issueKey}`,
           handler: async () => {
             await createIssueWithRelation('blocks')
@@ -114,7 +114,7 @@ onOpen((cmdpal) => {
             // When creating a pull request whose head branch contains a Jira issue reference,
             // copies the Jira issue key and title into the pull request title.
             id: 'gh-jira.prefill',
-            title: 'GitHub: Prefill pull requests from Jira issue',
+            title: 'GitHub: Prefill Pull Requests from Jira Issue',
             description: match[1],
             detail: match[2],
             handler: () => {

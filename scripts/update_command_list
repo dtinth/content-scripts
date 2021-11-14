@@ -2,12 +2,15 @@
 
 commands = []
 
-Command = Struct.new(:id, :title, :description)
+Command = Struct.new(:id, :title, :description, :definition)
 
 Dir['src/features/*.ts'].each do |file|
   contents = File.read(file)
-  contents.scan(/((?:\s*\/\/.*\n)+)\s*id:\s*'([^']+)',\s*\n\s*title:\s*'([^']+)'/).each do |description, id, title|
-    commands << Command.new(id, title, description.gsub(/^\s*\/\/\s*/, '').gsub(/\s+/, ' ').strip)
+  contents.scan(/((?:\s*\/\/.*\n)+)\s*id:\s*'([^']+)',\s*\n\s*title:\s*'([^']+)'/) do |description, id, title|
+    index = Regexp.last_match.offset(0)[0]
+    line_number = contents[0..index].count("\n") + 1
+    definition = "#{file}#L#{line_number}"
+    commands << Command.new(id, title, description.gsub(/^\s*\/\/\s*/, '').gsub(/\s+/, ' ').strip, definition)
   end
 end
 
@@ -15,11 +18,11 @@ command_list = []
 
 commands.sort_by! { |command| command.title.downcase }
 commands.each do |command|
-  command_list << "* <a name='#{command.id}'></a>**#{command.title}** — #{command.description}"
+  command_list << "* <a name='#{command.id}'></a>[**#{command.title}**](#{command.definition}) — #{command.description}"
 end
 
 readme = File.read('README.md')
 readme = readme.gsub(/(<!--\s*begin-command-list\s*-->).*(<!--\s*end-command-list\s*-->)/m) {
-  $1 + "\n\n" + command_list.join("\n") + "\n\n" + $2
+  $1 + "\n\n" + command_list.join("\n\n") + "\n\n" + $2
 }
 File.write('README.md', readme)

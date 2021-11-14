@@ -10,7 +10,7 @@ onOpen((cmdpal) => {
           // When on a GitHub Actions run page, copies the command to track
           // the run using [gh run-watch](https://docs.dt.in.th/gh-run-watch/index.html) to the clipboard.
           id: 'gh-actions.run-watch',
-          title: 'GitHub Actions: Copy `gh run-watch` command',
+          title: 'GitHub Actions: Copy `gh run-watch` Command',
           detail: cmd,
           handler: async () => {
             await tools.copy(cmd)
