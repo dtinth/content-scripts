@@ -1,0 +1,16 @@
+name: Update docs
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./scripts/update_command_list
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update command list as of ${{ github.sha }}
+          file_pattern: README.md
+          commit_user_name: dtinth-bot
+          commit_user_email: dtinth-bot@users.noreply.github.com
+          commit_author: dtinth-bot <dtinth-bot@users.noreply.github.com>

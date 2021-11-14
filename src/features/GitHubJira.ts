@@ -44,7 +44,7 @@ onOpen((cmdpal) => {
 
     cmdpal.registerCommands('jira.copy', [
       {
-        // Copies the Jira issue key.
+        // Copies the Jira issue key to the clipboard.
         id: 'jira.copy-key',
         title: 'Jira: Copy Issue Key',
         detail: issueKey,
