@@ -3,6 +3,7 @@ import TestingLibrary from './vendor/testing-library'
 
 export const domScreen = TestingLibrary.DomTestingLibrary.screen
 export const userEvent = TestingLibrary.userEvent
+export const waitFor = TestingLibrary.DomTestingLibrary.waitFor
 
 export function onOpen(callback: (cmdpal: Cmdpal) => void) {
   addEventListener('cmdpal', (e) => {
@@ -96,6 +97,10 @@ export namespace tools {
     document.execCommand('copy')
     copyFrom.blur()
     document.body.removeChild(copyFrom)
+  }
+  export async function nextFrame() {
+    await new Promise(requestAnimationFrame)
+    await new Promise(requestAnimationFrame)
   }
 }
 
