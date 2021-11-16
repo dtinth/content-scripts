@@ -9,6 +9,8 @@ It integrates with [cmdpal](https://docs.dt.in.th/cmdpal/index.html).
 
 * <a name='gh-actions.run-watch'></a>[**GitHub Actions: Copy `gh run-watch` Command**](src/features/GitHubActions.ts#L10) — When on a GitHub Actions run page, copies the command to track the run using [gh run-watch](https://docs.dt.in.th/gh-run-watch/index.html) to the clipboard.
 
+* <a name='github-pr.request-review'></a>[**GitHub Pull Request: Request Review**](src/features/GitHubPullRequest.ts#L80) — Requests reviews for the current PR by adding "review" label, assigning the pull request to the current user, and requesting reviews from suggested reviewers.
+
 * <a name='gh-jira.copy'></a>[**GitHub: Copy Jira URL and GitHub URL**](src/features/GitHubJira.ts#L28) — When viewing a pull request whose title contains a Jira issue reference, copies both the Jira issue URL and the pull request URL to the clipboard.
 
 * <a name='gh-jira.prefill'></a>[**GitHub: Prefill Pull Requests from Jira Issue**](src/features/GitHubJira.ts#L114) — When creating a pull request whose head branch contains a Jira issue reference, copies the Jira issue key and title into the pull request title.
